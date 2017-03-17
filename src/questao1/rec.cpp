@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../include/rec.h"
+#include "../include/questao1/rec.h"
 
 float a_rec (float n) {
 	if (n > 1) {

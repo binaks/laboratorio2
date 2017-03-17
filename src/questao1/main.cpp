@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../../include/questao1/rec.h"
+#include "../include/questao1/rec.h"
 
 using std::cin;
 using std::cout;
