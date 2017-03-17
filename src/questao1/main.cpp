@@ -10,6 +10,7 @@ int main () {
 
 	cin >> n;
 	cout << a_rec(n) << endl;
+	cout << b_rec(n) << endl;
 
 	return 0;
 }

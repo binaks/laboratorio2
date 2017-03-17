@@ -5,4 +5,6 @@
 
 float a_rec (float n);
 
+float b_rec (float n);
+
 #endif
