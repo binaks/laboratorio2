@@ -22,23 +22,28 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 #Define o alvo para a compilação completa
 #Define os alvos sequencia como dependências
 #Ao final da compilação, remove os arquivos objeto
-all: questao1
+all: sequencia
 
 debug: CFLAGS += -g -O0
-debug: questao1
+debug: sequencia
 
-#Alvo para a construção do executável questao1
-questao1: $(OBJ_DIR)/rec.o $(OBJ_DIR)/main.o
+#Alvo para a construção do executável sequencia
+sequencia: $(OBJ_DIR)/iterat.o $(OBJ_DIR)/rec.o $(OBJ_DIR)/main.o
 	@echo "============="
 	@echo "Ligando o alvo $@"
 	@echo "============="
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
-	@echo "+++ [Executavel questao1 criado em $(BIN_DIR)] +++"
+	@echo "+++ [Executavel sequencia criado em $(BIN_DIR)] +++"
 	@echo "============="
 
 #Alvo para a construção do objeto rec.o
 #Define os arquivos rec.cpp e rec.h como dependencias
 $(OBJ_DIR)/rec.o: $(SRC_DIR)/questao1/rec.cpp $(INC_DIR)/questao1/rec.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+#Alvo para a construção do objeto iterat.o
+#Define os arquivos iterat.cpp e iterat.h como dependencias
+$(OBJ_DIR)/iterat.o: $(SRC_DIR)/questao1/iterat.cpp $(INC_DIR)/questao1/iterat.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #Alvo para a construção do objeto main.o
