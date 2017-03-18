@@ -22,10 +22,10 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 #Define o alvo para a compilação completa
 #Define os alvos sequencia como dependências
 #Ao final da compilação, remove os arquivos objeto
-all: sequencia mdc
+all: sequencia mdc dec2bin
 
 debug: CFLAGS += -g -O0
-debug: sequencia mdc
+debug: sequencia mdc dec2bin
 
 #Alvo para a construção do executável sequencia
 sequencia: $(OBJ_DIR)/iterat.o $(OBJ_DIR)/iterat.o $(OBJ_DIR)/rec.o $(OBJ_DIR)/msg.o $(OBJ_DIR)/main1.o
@@ -59,8 +59,21 @@ mdc: $(OBJ_DIR)/calcmdc.o $(OBJ_DIR)/main2.o
 $(OBJ_DIR)/calcmdc.o: $(SRC_DIR)/questao2/calcmdc.cpp $(INC_DIR)/questao2/calcmdc.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-#Alvo para a construção do objeto main.o
+#Alvo para a construção do objeto main2.o
 $(OBJ_DIR)/main2.o: $(SRC_DIR)/questao2/main.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+#Alvo para a construção do executável dec2bin
+dec2bin: $(OBJ_DIR)/conv.o $(OBJ_DIR)/main3.o
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
+
+#Alvo para a construção do objeto conv.o
+#Define os arquivos conv.cpp e conv.h como dependências
+$(OBJ_DIR)/calcmdc.o: $(SRC_DIR)/questao3/conv.cpp $(INC_DIR)/questao3/conv.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+#Alvo para a construção do objeto main3.o
+$(OBJ_DIR)/main3.o: $(SRC_DIR)/questao3/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #Alvo para a geração automática de documentação usando o Doxygen
