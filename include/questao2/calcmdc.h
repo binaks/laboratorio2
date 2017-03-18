@@ -1,5 +1,5 @@
-#ifndef MDC_H
-#define MDC_H
+#ifndef CALCMDC_H
+#define CALCMDC_H
 
 #include <iostream>
 
