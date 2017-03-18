@@ -69,7 +69,11 @@ dec2bin: $(OBJ_DIR)/conv.o $(OBJ_DIR)/main3.o
 
 #Alvo para a construção do objeto conv.o
 #Define os arquivos conv.cpp e conv.h como dependências
+<<<<<<< HEAD
 $(OBJ_DIR)/conv.o: $(SRC_DIR)/questao3/conv.cpp $(INC_DIR)/questao3/conv.h
+=======
+$(OBJ_DIR)/calcmdc.o: $(SRC_DIR)/questao3/conv.cpp $(INC_DIR)/questao3/conv.h
+>>>>>>> de34074f8918fe71a69b37522d52110add83afdc
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #Alvo para a construção do objeto main3.o
