@@ -20,9 +20,9 @@ int main () {
 	}
 
 	if (n <= m) {
-		euclides (n, m);
+		cout << "MDC(" << m << "," << n << ") = " << euclides (m, n) << endl;
 	} else if (n > m) {
-		euclides (m, n);
+		cout << "MDC(" << n << "," << m << ") = " << euclides (n, m) << endl;
 	}
 
 	return 0;
