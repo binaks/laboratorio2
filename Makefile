@@ -28,17 +28,17 @@ debug: CFLAGS += -g -O0
 debug: sequencia
 
 #Alvo para a construção do executável sequencia
-sequencia: $(OBJ_DIR)/iterat.o $(OBJ_DIR)/rec.o $(OBJ_DIR)/main.o
-	@echo "============="
-	@echo "Ligando o alvo $@"
-	@echo "============="
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
-	@echo "+++ [Executavel sequencia criado em $(BIN_DIR)] +++"
-	@echo "============="
+sequencia: $(OBJ_DIR)/iterat.o $(OBJ_DIR)/iterat.o $(OBJ_DIR)/rec.o $(OBJ_DIR)/msg.o $(OBJ_DIR)/main.o
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $(MAKECMDGOALS) $^
 
 #Alvo para a construção do objeto rec.o
 #Define os arquivos rec.cpp e rec.h como dependencias
 $(OBJ_DIR)/rec.o: $(SRC_DIR)/questao1/rec.cpp $(INC_DIR)/questao1/rec.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+#Alvo para a construção do objeto msg.o
+#Define os arquivos msg.cpp e msg.h como dependencias
+$(OBJ_DIR)/msg.o: $(SRC_DIR)/questao1/msg.cpp $(INC_DIR)/questao1/msg.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #Alvo para a construção do objeto iterat.o

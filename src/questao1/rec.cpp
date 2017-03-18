@@ -3,10 +3,10 @@
 #include "../include/questao1/rec.h"
 
 float a_rec (float n) {
-	if (n > 1) {
+	if (n > 0) {
 		return 1/n + a_rec(n - 1);
 	} else {
-		return 1;
+		return 0;
 	}
 }
 
