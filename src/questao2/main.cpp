@@ -9,7 +9,7 @@ int main () {
 	int n;
 	int m;
 
-	cout << "Digite dois números naturais positivos: " << endl;
+	cout << "Digite dois números naturais positivos: ";
 
 	cin >> n;
 	cin >> m;

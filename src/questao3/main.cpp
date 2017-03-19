@@ -9,7 +9,7 @@ using std::endl;
 int main () {
 	int n;
 
-	cout << "Digite um número: " << endl;
+	cout << "Digite um número: ";
 	cin >> n;
 	cout << "Representação de " << n << " na forma binária: ";
 	cout << convDec2Bin(n) << endl;

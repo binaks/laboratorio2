@@ -27,6 +27,8 @@ all: sequencia mdc dec2bin palindromo
 debug: CFLAGS += -g -O0
 debug: sequencia mdc dec2bin palindromo
 
+#======================QUESTÃO1================================
+
 #Alvo para a construção do executável sequencia
 sequencia: $(OBJ_DIR)/iterat.o $(OBJ_DIR)/iterat.o $(OBJ_DIR)/rec.o $(OBJ_DIR)/msg.o $(OBJ_DIR)/main1.o
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $(MAKECMDGOALS) $^
@@ -50,6 +52,7 @@ $(OBJ_DIR)/iterat.o: $(SRC_DIR)/questao1/iterat.cpp $(INC_DIR)/questao1/iterat.h
 $(OBJ_DIR)/main1.o: $(SRC_DIR)/questao1/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
+#======================QUESTÃO2================================
 
 #Alvo para a construção do executável mdc
 mdc: $(OBJ_DIR)/calcmdc.o $(OBJ_DIR)/main2.o
@@ -64,6 +67,7 @@ $(OBJ_DIR)/calcmdc.o: $(SRC_DIR)/questao2/calcmdc.cpp $(INC_DIR)/questao2/calcmd
 $(OBJ_DIR)/main2.o: $(SRC_DIR)/questao2/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
+#======================QUESTÃO3================================
 
 #Alvo para a construção do executável dec2bin
 dec2bin: $(OBJ_DIR)/conv.o $(OBJ_DIR)/main3.o
@@ -78,6 +82,7 @@ $(OBJ_DIR)/conv.o: $(SRC_DIR)/questao3/conv.cpp $(INC_DIR)/questao3/conv.h
 $(OBJ_DIR)/main3.o: $(SRC_DIR)/questao3/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
+#======================QUESTÃO4================================
 
 #Alvo para a construção do executável palindromo
 palindromo: $(OBJ_DIR)/checapalindromo.o $(OBJ_DIR)/main4.o
@@ -91,7 +96,8 @@ $(OBJ_DIR)/checapalindromo.o: $(SRC_DIR)/questao4/checapalindromo.cpp $(INC_DIR)
 #Alvo para a construção do objeto main4.o
 $(OBJ_DIR)/main4.o: $(SRC_DIR)/questao4/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
-	
+
+#======================QUESTÃO5================================
 
 #Alvo para a geração automática de documentação usando o Doxygen
 #Sempre remove a documentação anterior (caso exista) e gera uma nova
