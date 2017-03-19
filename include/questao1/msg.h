@@ -1,5 +1,5 @@
 /**
- * @file msg.cpp
+ * @file msg.h
  * @brief Funções que imprimem mensagens para o usuário
  * @author Bianca Rodrigues Cesarino
  * @since 16/03/2017

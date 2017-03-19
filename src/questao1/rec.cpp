@@ -11,7 +11,12 @@
 #include <cmath>
 #include "../include/questao1/rec.h"
 
-float a_rec (float n) { /**< Calcula a sequencia A */
+/**
+ * @brief Calcula a sequência A usando recursão de cauda
+ * @param n O número para o qual a sequência será calculada
+ * @return Resultado do somatório
+ */
+float a_rec (float n) {
 	if (n > 0) {
 		return 1/n + a_rec(n - 1);
 	} else {
@@ -19,7 +24,12 @@ float a_rec (float n) { /**< Calcula a sequencia A */
 	}
 }
 
-float b_rec (float n) { /**< Calcula a sequencia B */
+/**
+ * @brief Calcula a sequência B usando recursão de cauda
+ * @param n O número para o qual a sequência será calculada
+ * @return Resultado do somatório
+ */
+float b_rec (float n) {
 	if (n > 0) {
 		return (pow(n,2) + 1)/(n + 3) + b_rec (n - 1);
 	} else {
