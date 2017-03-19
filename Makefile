@@ -22,10 +22,10 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 #Define o alvo para a compilação completa
 #Define os alvos sequencia como dependências
 #Ao final da compilação, remove os arquivos objeto
-all: sequencia mdc dec2bin palindromo
+all: sequencia mdc dec2bin palindromo quadrado_recursivo
 
 debug: CFLAGS += -g -O0
-debug: sequencia mdc dec2bin palindromo
+debug: sequencia mdc dec2bin palindromo quadrado_recursivo
 
 #======================QUESTÃO1================================
 
@@ -98,6 +98,21 @@ $(OBJ_DIR)/main4.o: $(SRC_DIR)/questao4/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #======================QUESTÃO5================================
+
+#Alvo para a construção do executável quadrado_recursivo
+quadrado_recursivo: $(OBJ_DIR)/qrecursivo.o $(OBJ_DIR)/main5.o
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
+
+#Alvo para a construção do objeto qrecursivo.o
+#Define os arquviso qrecursivo.cpp e qrecursivo.h como dependências
+$(OBJ_DIR)/qrecursivo.o: $(SRC_DIR)/questao5/qrecursivo.cpp $(INC_DIR)/questao5/qrecursivo.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+#Alvo para a construção do objeto main5.cpp
+$(OBJ_DIR)/main5.o: $(SRC_DIR)/questao5/main.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+#======================QUESTÃO6================================
 
 #Alvo para a geração automática de documentação usando o Doxygen
 #Sempre remove a documentação anterior (caso exista) e gera uma nova
