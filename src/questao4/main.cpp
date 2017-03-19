@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @brief Programa que decide se uma palavra é ou não um palíndromo
+ * @author Bianca Rodrigues Cesarino
+ * @since 16/03/2017
+ * @date 19/03/2017
+ * @sa https://github.com/binaks/laboratorio2
+ */
+
 #include <iostream>
 #include <string>
 #include "../include/questao4/checapalindromo.h"
