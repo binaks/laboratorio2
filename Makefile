@@ -22,10 +22,10 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 #Define o alvo para a compilação completa
 #Define os alvos sequencia como dependências
 #Ao final da compilação, remove os arquivos objeto
-all: sequencia mdc dec2bin palindromo quadrado_recursivo quadrado_iterativo
+all: sequencia mdc dec2bin palindromo quadrado_recursivo quadrado_iterativo ternaria
 
 debug: CFLAGS += -g -O0
-debug: sequencia mdc dec2bin palindromo quadrado_recursivo quadrado_iterativo
+debug: sequencia mdc dec2bin palindromo quadrado_recursivo quadrado_iterativo ternaria
 
 #======================QUESTÃO1================================
 
@@ -108,24 +108,38 @@ quadrado_iterativo: $(OBJ_DIR)/qiterativo.o $(OBJ_DIR)/main5-2.o
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $(MAKECMDGOALS) $^
 
 #Alvo para a construção do objeto qrecursivo.o
-#Define os arquviso qiterativo.cpp e qiterativo.h como dependências
+#Define os arquivos qiterativo.cpp e qiterativo.h como dependências
 $(OBJ_DIR)/qiterativo.o: $(SRC_DIR)/questao5/qiterativo.cpp $(INC_DIR)/questao5/qiterativo.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #Alvo para a construção do objeto qrecursivo.o
-#Define os arquviso qrecursivo.cpp e qrecursivo.h como dependências
+#Define os arquivos qrecursivo.cpp e qrecursivo.h como dependências
 $(OBJ_DIR)/qrecursivo.o: $(SRC_DIR)/questao5/qrecursivo.cpp $(INC_DIR)/questao5/qrecursivo.h
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-#Alvo para a construção do objeto main5.cpp
+#Alvo para a construção do objeto main5-1.o
 $(OBJ_DIR)/main5-1.o: $(SRC_DIR)/questao5/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
-#Alvo para a construção do objeto main5.cpp
+#Alvo para a construção do objeto main5-2.o
 $(OBJ_DIR)/main5-2.o: $(SRC_DIR)/questao5/mainit.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #======================QUESTÃO6================================
+
+#Alvo para a construção do executável ternaria
+ternaria: $(OBJ_DIR)/bternaria.o $(OBJ_DIR)/main6.o
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $(MAKECMDGOALS) $^
+
+#Alvo para a construção do objeto bternaria.o
+#Define os arquivos bternaria.cpp e bternaria.h como dependências
+$(OBJ_DIR)/bternaria.o: $(SRC_DIR)/questao6/bternaria.cpp $(INC_DIR)/questao6/bternaria.h
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+#Alvo para a construção do objeto main6.o
+$(OBJ_DIR)/main6.o: $(SRC_DIR)/questao6/main.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<
+
 
 #Alvo para a geração automática de documentação usando o Doxygen
 #Sempre remove a documentação anterior (caso exista) e gera uma nova
