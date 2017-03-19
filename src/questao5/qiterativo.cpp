@@ -7,7 +7,6 @@
  * @sa https://github.com/binaks/laboratorio2
  */
 
-
 #include <iostream>
 #include "../include/questao5/qiterativo.h"
 

@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @brief Programa que realiza uma busca ternária
+ * @author Bianca Rodrigues Cesarino
+ * @since 16/03/2017
+ * @date 19/03/2017
+ * @sa https://github.com/binaks/laboratorio2
+ */
+
 #include <iostream>
 #include "../include/questao6/bternaria.h"
 
