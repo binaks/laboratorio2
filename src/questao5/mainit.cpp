@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/questao5/qrecursivo.h"
+#include "../include/questao5/qiterativo.h"
 
 using std::cout;
 using std::endl;
@@ -11,7 +11,7 @@ int main (int argc, char* argv[]) {
 
 	cout << "quadrado (" << n << ") => ";
 
-	cout << qrecursivo(n) << endl;
+	cout << qiterativo(n) << endl;
 
 	return 0;
 }

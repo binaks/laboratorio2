@@ -22,10 +22,10 @@ CFLAGS = -Wall -pedantic -ansi -std=c++11 -I. -I$(INC_DIR)
 #Define o alvo para a compilação completa
 #Define os alvos sequencia como dependências
 #Ao final da compilação, remove os arquivos objeto
-all: sequencia mdc dec2bin palindromo quadrado_recursivo
+all: sequencia mdc dec2bin palindromo quadrado_recursivo quadrado_iterativo
 
 debug: CFLAGS += -g -O0
-debug: sequencia mdc dec2bin palindromo quadrado_recursivo
+debug: sequencia mdc dec2bin palindromo quadrado_recursivo quadrado_iterativo
 
 #======================QUESTÃO1================================
 
@@ -100,8 +100,17 @@ $(OBJ_DIR)/main4.o: $(SRC_DIR)/questao4/main.cpp
 #======================QUESTÃO5================================
 
 #Alvo para a construção do executável quadrado_recursivo
-quadrado_recursivo: $(OBJ_DIR)/qrecursivo.o $(OBJ_DIR)/main5.o
-	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $^
+quadrado_recursivo: $(OBJ_DIR)/qrecursivo.o $(OBJ_DIR)/main5-1.o
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $(MAKECMDGOALS) $^
+
+#Alvo para a construção do executável quadrado_iterativo
+quadrado_iterativo: $(OBJ_DIR)/qiterativo.o $(OBJ_DIR)/main5-2.o
+	$(CC) $(CFLAGS) -o $(BIN_DIR)/$@ $(MAKECMDGOALS) $^
+
+#Alvo para a construção do objeto qrecursivo.o
+#Define os arquviso qiterativo.cpp e qiterativo.h como dependências
+$(OBJ_DIR)/qiterativo.o: $(SRC_DIR)/questao5/qiterativo.cpp $(INC_DIR)/questao5/qiterativo.h
+	$(CC) -c $(CFLAGS) -o $@ $<
 
 #Alvo para a construção do objeto qrecursivo.o
 #Define os arquviso qrecursivo.cpp e qrecursivo.h como dependências
@@ -109,7 +118,11 @@ $(OBJ_DIR)/qrecursivo.o: $(SRC_DIR)/questao5/qrecursivo.cpp $(INC_DIR)/questao5/
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #Alvo para a construção do objeto main5.cpp
-$(OBJ_DIR)/main5.o: $(SRC_DIR)/questao5/main.cpp
+$(OBJ_DIR)/main5-1.o: $(SRC_DIR)/questao5/main.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+#Alvo para a construção do objeto main5.cpp
+$(OBJ_DIR)/main5-2.o: $(SRC_DIR)/questao5/mainit.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 #======================QUESTÃO6================================
