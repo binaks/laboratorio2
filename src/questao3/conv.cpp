@@ -1,12 +1,21 @@
 #include <iostream>
+#include <string>
 #include "../include/questao3/conv.h"
 
-int convDec2Bin (int n) {
-	int bin = n%2;
+using std::string;
 
-	if (n/2 > 0) {
-		convDec2Bin(n/2);
+string convDec2Bin (int n) {
+	string bin;
+
+	if (n%2 == 0) {
+		bin += '0';
+	} else {
+		bin += '1';
 	}
 
-	return (bin);
+	if (n/2 > 0) {
+		return convDec2Bin(n/2) + bin;
+	} else {
+		return bin;
+	}
 }

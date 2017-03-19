@@ -1,8 +1,11 @@
 #ifndef CONV_H
 #define CONV_H
 
+#include <string>
 #include <iostream>
 
-int convDec2Bin (int n);
+using std::string; 
+
+string convDec2Bin (int n);
 
 #endif

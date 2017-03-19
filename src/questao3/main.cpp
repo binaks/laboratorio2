@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "../include/questao3/conv.h"
 
 using std::cin;
