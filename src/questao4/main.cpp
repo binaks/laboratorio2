@@ -13,6 +13,8 @@ int main () {
 	cout << "Digite uma palavra: ";
 	cin >> palavra;
 
+	palavra = converte (palavra);
+
 	compara (palavra, reverte(palavra));
 
 	return 0;
